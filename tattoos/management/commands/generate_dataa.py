@@ -36,7 +36,7 @@ class Command(BaseCommand):
         studios = [TattooStudio(name=fake.company()) for _ in range(num_studios)]
         TattooStudio.objects.bulk_create(studios)
 
-        # 4. Тату мастера
+        # 4. Тату маст
         artists = []
         for i in range(num_artists):
             studio = random.choice(list(TattooStudio.objects.all()))

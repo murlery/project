@@ -31,7 +31,7 @@
               <ul class="dropdown-menu">
                 <li>
                   <a class="dropdown-item" href="/admin">
-                    Админка
+                    админка
                   </a>
                 </li>
               </ul>
