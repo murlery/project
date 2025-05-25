@@ -18,23 +18,33 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
-from tattoos import views
-from rest_framework.routers import DefaultRouter
-from tattoos.api import TattoosViewset, StyleViewset, PriceViewset,TattooArtistViewset,TattooStudioViewset,UserProfileViewset
 
+from tournament import views
+from rest_framework.routers import DefaultRouter
+from tournament.api import TournamentsViewSet, RankSignificanceViewSet, ApplicationViewSet, ApplicationStatusViewSet, DocumentViewSet, RegionViewSet, ParticipantListViewSet, WeightCategoryViewSet
+from django.urls import path
 router = DefaultRouter()
 
-router.register("tattoos",TattoosViewset, basename="tattoos")
-router.register("styles",StyleViewset, basename="styles")
-router.register("prices",PriceViewset, basename="prices")
-router.register("tattooArtists",TattooArtistViewset, basename="tattooArtists")
-router.register("tattooStudios",TattooStudioViewset, basename="tattooStudios")
-router.register("user", UserProfileViewset, basename="user")
+router.register("rankSignificances", RankSignificanceViewSet, basename="rankSignificances")
 
+router.register("applications", ApplicationViewSet, basename="applications")
+router.register("applicationStatuses", ApplicationStatusViewSet, basename="applicationStatuses")
+router.register("documents", DocumentViewSet, basename="documents")
+router.register("regions", RegionViewSet, basename="regions")
+router.register("participantLists", ParticipantListViewSet, basename="participantLists")
+router.register("weightCategorys", WeightCategoryViewSet, basename="weightCategorys")
+router.register("tournaments",TournamentsViewSet, basename="tournaments")
 
 
 urlpatterns = [
-    path('', views.ShowTattoosView.as_view()),
+    
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),  # endpoints для login/logout
+    # path('api/login/', LoginView.as_view()),
+    # path('api/logout/', LogoutView.as_view()),
+    # path('api/whoami/', WhoAmIView.as_view()),
+   # path('', views.ShowTattoosView.as_view()),
+    path('', views.ShowTournamentsView.as_view()),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

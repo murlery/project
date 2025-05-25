@@ -1,10 +1,8 @@
-import TattoosView from '@/views/TattooView.vue'
+import TournamentsView from '@/views/TournamentsView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import TattooView from '../views/TattooView.vue';
-import StyleView from '../views/StyleView.vue';
-import PriceView from '../views/PriceView.vue';
-import TattooArtist from '../views/TattooArtist.vue';
-import TattooStudioView from '../views/TattooStudioView.vue';
+import LoginPage from '../views/LoginPage.vue';
+import RegisterPage from '@/views/RegisterPage.vue';
+
 
 
 const router = createRouter({
@@ -12,34 +10,23 @@ const router = createRouter({
   routes: [
     {
       path:"/",
-      name:"TattooView",
-      component: TattooView
+      name:"TournamentsView",
+      component: TournamentsView
 
     },
     {
-      path:"/styles",
-      name:"StyleView",
-      component: StyleView
+      path:"/register",
+      name:"RegisterPage",
+      component: RegisterPage
 
     },
     {
-      path:"/prices",
-      name:"PriceView",
-      component: PriceView
+      path:"/login",
+      name:"LoginPage",
+      component: LoginPage
 
     },
-    {
-      path:"/tattooArtists",
-      name:"TattooArtistView",
-      component: TattooArtist
-
-    },
-    {
-      path:"/tatooStudios",
-      name:"TattooStudioView",
-      component: TattooStudioView
-
-    },
+    
   ]
 })
 

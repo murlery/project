@@ -30,3 +30,8 @@ coverage
 
 *.tsbuildinfo
 media
+
+pycache
+*.sqlite3
+.conda
+media
